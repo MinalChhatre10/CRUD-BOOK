@@ -1,89 +1,120 @@
-.App{
+.App {
     height: 100vh;
     padding: 0px 100px;
-    display:flex;
+    display: flex;
     align-items: center;
     justify-content: center;
     text-align: center;
-}
-.books{
+    background-color: #FFF7F7;
+  }
+  
+  .books {
     display: flex;
     gap: 10px;
-}
-.book{
-        /* Add shadows to create the "card" effect */
-        box-shadow: 0 4px 8px 0 rgba(0,0,0,0.3);
-        transition: 0.3s;
-      
-        border-radius: 10px;
-        padding: 2px 16px;
-    
-    flex:1;
+  }
+  
+  .book {
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.3);
+    transition: all 0.3s ease;
+    border-radius: 10px;
+    padding: 2px 16px;
+    flex: 1;
     display: flex;
     flex-direction: column;
     gap: 10px;
     align-items: center;
-
-}
- 
- /* On mouse-over, add a deeper shadow */
-.book:hover {
-    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
-}
-
-img{
+    background-color: #FFF0F5;
+  }
+  
+  .book:hover {
+    box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
+    transform: translateY(-5px);
+  }
+  
+  img {
     width: 200px;
     height: 300px;
     object-fit: cover;
-    background-color: rgb(203,238,227);
-}
-.linkB{
+    background-color: #F4C2C2;
+  }
+  
+  .linkB {
     border: none;
     margin: 30px;
-    padding: 3px 6px;
-    background-color: white;
+    padding: 10px 20px;
+    background-color: #F8BBD0;
     cursor: pointer;
-    border: 1px solid rgb(79, 7, 37);
-    color: rgb(194, 66, 134);
-}
-
-
-.delete{
+    border: 1px solid #D81B60;
+    color: #D81B60;
+    transition: all 0.3s ease;
+    border-radius: 20px;
+    font-size: 20px;
+  }
+  
+  .linkB:hover {
+    background-color: #F48FB1;
+    color: #FFF;
+    transform: scale(1.1);
+  }
+  
+  .delete {
     border: none;
-    padding: 3px 6px;
-    background-color: white;
+    padding: 10px 20px;
+    background-color: #FFF0F5;
     cursor: pointer;
-    border: 1px solid rgb(101, 17, 17);
-    color: rgb(242,100,100);
-}
-
-.update{
+    border: 1px solid #D81B60;
+    color: #D81B60;
+    transition: all 0.3s ease;
+    border-radius: 20px;
+    font-size: 20px;
+  }
+  
+  .delete:hover {
+    background-color: #F8BBD0;
+    color: #FFF;
+    transform: scale(1.1);
+  }
+  
+  .update {
     border: none;
-    padding: 3px 6px;
-    background-color: white;
+    padding: 10px 20px;
+    background-color: #FFF0F5;
     cursor: pointer;
-    border: 1px solid rgb(28, 7, 79);
-    color: rgb(139,139,234);
-}
-
-.form{
-    display:flex;
+    border: 1px solid #673AB7;
+    color: #673AB7;
+    transition: all 0.3s ease;
+    border-radius: 20px;
+    font-size: 20px;
+  }
+  
+  .update:hover {
+    background-color: #E1BEE7;
+    color: #FFF;
+    transform: scale(1.1);
+  }
+  
+  .form {
+    display: flex;
     flex-direction: column;
     gap: 20px;
-}
-
-.input{
+    background-color: #FFF0F5;
+    padding: 20px;
+    border-radius: 20px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.3);
+  }
+  
+  .input {
     width: 250px;
     padding: 10px;
-    border: 1px solid gray;
-
-}
-
-.formButton{
-     border: none;
-    padding: 3px 6px;
-    background-color: white;
+    border: 1px solid #F48FB1;
+    border-radius: 10px;
+    font-size: 20px;
+  }
+  
+  .formButton {
+    border: none;
+    padding: 10px 20px;
+    background-color: #F8BBD0;
     cursor: pointer;
-    border: 1px solid rgb(28, 7, 79);
-    color: rgb(139,139,234);
-}
+  }
+  

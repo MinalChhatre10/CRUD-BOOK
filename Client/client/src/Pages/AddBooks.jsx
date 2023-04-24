@@ -36,7 +36,7 @@ const AddBooks = () => {
       <input type="text" name="desc" onChange={handleChange} placeholder='discription' />
       <input type="number" name="price" onChange={handleChange} placeholder='price' />
       <input type="text" name="cover" onChange={handleChange} placeholder='cover' />
-      <button onClick={handleClick}>Add</button>
+      <button className="formButton" onClick={handleClick}>Add</button>
     </div>
   );
 };
