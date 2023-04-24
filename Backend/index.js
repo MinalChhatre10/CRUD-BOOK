@@ -10,19 +10,21 @@ const db = mysql.createConnection({
   database: "test",
 });
 
+app.use(express.json());
+
 app.get("/", (req, res) => {
   res.json("Hello this is the backend");
 });
 
 app.get("/books", (req, res) => {
-  db.connect(function (err) {
-    if (err) {
-      console.error("error connecting: " + err.errno);
-      return;
-    }
+  // db.connect(function (err) {
+  //   if (err) {
+  //     console.error("error connecting: " + err.errno);
+  //     return;
+  //   }
 
-    console.log("connected as id " + db.threadId);
-  });
+  //   console.log("connected as id " + db.threadId);
+  // });
   const q = "SELECT * FROM Books";
   db.query(q, (err, data) => {
     if (err) return res.json(err);
@@ -30,6 +32,16 @@ app.get("/books", (req, res) => {
   });
 });
 
-app.listen(8808, () => {
+app.post("/books", (req, res) => {
+  const q = "INSERT INTO Books(`title`,`discription`,`cover`) VALUES (?)";
+  const values = [req.body.title, req.body.desc, req.body.cover];
+
+  db.query(q, [values], (err, data) => {
+    if (err) return res.json(err);
+    return res.json("Book has been created sucessfully");
+  });
+});
+
+app.listen(8800, () => {
   console.log("Connected to backend!");
 });
