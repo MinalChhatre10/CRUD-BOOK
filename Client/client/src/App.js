@@ -26,3 +26,6 @@ export default App;
 //npm install react-router-dom  --  install package
 //npm i axios
 //npm i cors -- in backend
+
+//Backend % nodemon index.js
+//client % npm start
