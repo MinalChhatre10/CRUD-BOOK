@@ -5,6 +5,7 @@ import { BrowserRouter, Route, Routes, Link } from "react-router-dom";
 import Books from "./Pages/Books";
 import AddBooks from "./Pages/AddBooks";
 import UpdateBooks from "./Pages/UpdateBooks";
+import "./style.css";
 
 function App() {
   return (

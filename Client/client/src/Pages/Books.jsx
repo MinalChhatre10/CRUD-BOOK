@@ -27,10 +27,12 @@ const Books = () => {
             <h2>{book.title}</h2>
             <p>{book.desc}</p>
             <span>{book.price}</span>
+            <button className="delete">Delete</button>
+            <button className="update">Update</button>
           </div>
         ))}
       </div>
-      <button><Link to="/addbook">Add New Book</Link></button>
+      <button className="linkB"><Link to="/addbook">Add New Book</Link></button>
     </div>
   )
 }

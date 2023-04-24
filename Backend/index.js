@@ -35,14 +35,21 @@ app.get("/books", (req, res) => {
 });
 
 app.post("/books", (req, res) => {
-  const q = "INSERT INTO Books(`title`,`discription`,`cover`) VALUES (?)";
-  const values = [req.body.title, req.body.desc, req.body.cover];
+  const q = "INSERT INTO Books(`title`,`desc`,`price`,`cover`) VALUES (?)";
+  const values = [
+    req.body.title,
+    req.body.desc,
+    req.body.price,
+    req.body.cover,
+  ];
 
   db.query(q, [values], (err, data) => {
     if (err) return res.json(err);
     return res.json("Book has been created sucessfully");
   });
 });
+
+//app.delete();
 
 app.listen(8800, () => {
   console.log("Connected to backend!");
