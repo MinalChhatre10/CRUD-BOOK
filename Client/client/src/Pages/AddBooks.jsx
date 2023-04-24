@@ -2,8 +2,12 @@ import React from 'react'
 
 const AddBooks = () => {
   return (
-    <div>
-      <h1>Add</h1>
+    <div className="form">
+      <h1>Add New Book</h1>
+      <input type="text" name="" id="" placeholder='title' />
+      <input type="text" name="" id="" placeholder='title' />
+      <input type="text" name="" id="" placeholder='title' />
+      <input type="text" name="" id="" placeholder='title' />
     </div>
   )
 }
