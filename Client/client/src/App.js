@@ -5,6 +5,7 @@ import { BrowserRouter, Route, Routes, Link } from "react-router-dom";
 import Books from "./Pages/Books";
 import AddBooks from "./Pages/AddBooks";
 import UpdateBooks from "./Pages/UpdateBooks";
+import LoginAdmin from "./Pages/LoginAdmin";
 import "./style.css";
 
 function App() {
@@ -12,6 +13,7 @@ function App() {
     <BrowserRouter>
       <div className="App">
         <Routes>
+          <Route path="/" element={<LoginAdmin />} />
           <Route path="/book" element={<Books />} />
           <Route path="/add" element={<AddBooks />} />
           <Route path="/update/:id" element={<UpdateBooks />} />

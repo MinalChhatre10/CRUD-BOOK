@@ -18,6 +18,19 @@ app.get("/", (req, res) => {
   res.json("Hello this is the backend");
 });
 
+app.post("/login", (req, res) => {
+  const q = "SELECT * FROM AdminLogin WHERE username=? AND password=?";
+
+  db.query(q, [req.body.username, req.body.password], (err, data) => {
+    if (err) return res.json(err);
+    if (data.length > 0) {
+      return res.json("Login sucessful");
+    } else {
+      return res.json("Login failed");
+    }
+  });
+});
+
 app.get("/books", (req, res) => {
   // db.connect(function (err) {
   //   if (err) {
