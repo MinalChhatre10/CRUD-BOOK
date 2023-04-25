@@ -98,6 +98,8 @@
     flex-direction: column;
     gap: 20px;
     background-color: #FFF0F5;
+    width: 350px;
+   
     padding: 20px;
     border-radius: 20px;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.3);
@@ -107,6 +109,10 @@
     width: 250px;
     padding: 10px;
     border: 1px solid #F48FB1;
+    padding: 10px 20px;
+    height: 45px;
+    margin: 10px;
+    
     border-radius: 10px;
     font-size: 20px;
   }
@@ -114,6 +120,7 @@
   .formButton {
     border: none;
     padding: 10px 20px;
+    height: 45px;
     background-color: #F8BBD0;
     cursor: pointer;
   }
