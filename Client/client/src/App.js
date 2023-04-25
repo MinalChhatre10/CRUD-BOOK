@@ -8,6 +8,7 @@ import UpdateBooks from "./Pages/UpdateBooks";
 import LoginAdmin from "./Pages/LoginAdmin";
 import Dashboard from "./Pages/Dashboard";
 import "./style.css";
+import "./Dashboard.css";
 
 function App() {
   return (
