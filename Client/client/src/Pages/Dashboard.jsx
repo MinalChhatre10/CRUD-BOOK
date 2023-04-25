@@ -1,12 +1,14 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import Navigation from './Navigation';
 
 // import logo from './logo.png';
 import { Card, CardBody, CardTitle, CardSubtitle } from 'reactstrap';
 
 const Dashboard = () => {
   return (
-  <>
+  <div>
+   <Navigation />
       <div className="container">
         <div className="row mt-4 card-container">
           <div className="col-md-4">
@@ -41,7 +43,7 @@ const Dashboard = () => {
           </div>
         </div>
       </div>
-      </>
+      </div>
   );
 };
 
