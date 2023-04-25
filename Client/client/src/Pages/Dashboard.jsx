@@ -16,7 +16,7 @@ const Dashboard = () => {
               <CardBody>
                 <CardTitle tag="h5">Books</CardTitle>
                 <CardSubtitle tag="h6" className="mb-2 text-muted">View and manage books</CardSubtitle>
-                <Link className="btn btn-primary mt-3" to="/books">View Books</Link>
+                <Link className="btn btn-primary mt-3" to="/book">View Books</Link>
               </CardBody>
             </Card>
           </div>
