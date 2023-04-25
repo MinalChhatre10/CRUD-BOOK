@@ -6,6 +6,7 @@ import Books from "./Pages/Books";
 import AddBooks from "./Pages/AddBooks";
 import UpdateBooks from "./Pages/UpdateBooks";
 import LoginAdmin from "./Pages/LoginAdmin";
+import Dashboard from "./Pages/Dashboard";
 import "./style.css";
 
 function App() {
@@ -14,6 +15,7 @@ function App() {
       <div className="App">
         <Routes>
           <Route path="/" element={<LoginAdmin />} />
+          <Route path="/dashboard" element={<Dashboard />} />
           <Route path="/book" element={<Books />} />
           <Route path="/add" element={<AddBooks />} />
           <Route path="/update/:id" element={<UpdateBooks />} />
