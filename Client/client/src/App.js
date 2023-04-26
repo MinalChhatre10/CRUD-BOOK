@@ -9,6 +9,9 @@ import LoginAdmin from "./Pages/LoginAdmin";
 import Dashboard from "./Pages/Dashboard";
 import "./style.css";
 import "./Dashboard.css";
+import Clients from "./Pages/Clients";
+import AddClients from "./Pages/AddClients";
+import UpdateClients from "./Pages/UpdateClients";
 
 function App() {
   return (
@@ -20,6 +23,9 @@ function App() {
           <Route path="/book" element={<Books />} />
           <Route path="/add" element={<AddBooks />} />
           <Route path="/update/:id" element={<UpdateBooks />} />
+          <Route path="/clients" element={<Clients />} />
+          <Route path="/addclient" element={<AddClients />} />
+          <Route path="/updateclient/:id" element={<UpdateClients />} />
         </Routes>
       </div>
     </BrowserRouter>

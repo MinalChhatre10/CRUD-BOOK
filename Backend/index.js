@@ -47,6 +47,14 @@ app.get("/books", (req, res) => {
   });
 });
 
+app.get("/client", (req, res) => {
+  const q = "SELECT * FROM Client";
+  db.query(q, (err, data) => {
+    if (err) return res.json(err);
+    return res.json(data);
+  });
+});
+
 app.post("/books", (req, res) => {
   const q = "INSERT INTO Books(`title`,`desc`,`price`,`cover`) VALUES (?)";
   const values = [
@@ -62,6 +70,22 @@ app.post("/books", (req, res) => {
   });
 });
 
+app.post("/client", (req, res) => {
+  const q =
+    "INSERT INTO Client(`name`,`emailId`,`address`,`gender`) VALUES (?)";
+  const values = [
+    req.body.name,
+    req.body.emailId,
+    req.body.address,
+    req.body.gender,
+  ];
+
+  db.query(q, [values], (err, data) => {
+    if (err) return res.json(err);
+    return res.json("Client has been created sucessfully");
+  });
+});
+
 app.delete("/books/:id", (req, res) => {
   const bookId = req.params.id;
   const q = "DELETE FROM books WHERE id =?";
@@ -69,6 +93,16 @@ app.delete("/books/:id", (req, res) => {
   db.query(q, [bookId], (err, data) => {
     if (err) return res.json(err);
     return res.json("Book has been deleted sucessfully");
+  });
+});
+
+app.delete("/client/:idClient", (req, res) => {
+  const clientId = req.params.idClient;
+  const q = "DELETE FROM Client WHERE idClient =?";
+
+  db.query(q, [clientId], (err, data) => {
+    if (err) return res.json(err);
+    return res.json("Client has been deleted sucessfully");
   });
 });
 
@@ -87,6 +121,24 @@ app.put("/books/:id", (req, res) => {
   db.query(q, [...values, bookId], (err, data) => {
     if (err) return res.json(err);
     return res.json("Book has been updated sucessfully");
+  });
+});
+
+app.put("/client/:idClient", (req, res) => {
+  const clientId = req.params.idClient;
+  const q =
+    "UPDATE Client SET `name` =? ,`emailId`=?,`address`=?,`gender`=?  WHERE idClient =?";
+
+  const values = [
+    req.body.name,
+    req.body.emailId,
+    req.body.address,
+    req.body.gender,
+  ];
+
+  db.query(q, [...values, clientId], (err, data) => {
+    if (err) return res.json(err);
+    return res.json("Client has been updated sucessfully");
   });
 });
 

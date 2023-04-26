@@ -23,9 +23,9 @@ const Dashboard = () => {
           <div className="col-md-4">
             <Card>
               <CardBody>
-                <CardTitle tag="h5">Users</CardTitle>
-                <CardSubtitle tag="h6" className="mb-2 text-muted">View and manage users</CardSubtitle>
-                <Link className="btn btn-primary mt-3" to="/users">View Users</Link>
+                <CardTitle tag="h5">Clients</CardTitle>
+                <CardSubtitle tag="h6" className="mb-2 text-muted">View and manage clients</CardSubtitle>
+                <Link className="btn btn-primary mt-3" to="/clients">View Clients</Link>
               </CardBody>
             </Card>
           </div>
