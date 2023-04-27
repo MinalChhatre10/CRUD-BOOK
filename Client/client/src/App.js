@@ -12,6 +12,8 @@ import "./Dashboard.css";
 import Clients from "./Pages/Clients";
 import AddClients from "./Pages/AddClients";
 import UpdateClients from "./Pages/UpdateClients";
+import Orders from "./Pages/Orders";
+import AddOrders from "./Pages/AddOrders";
 
 function App() {
   return (
@@ -26,6 +28,8 @@ function App() {
           <Route path="/clients" element={<Clients />} />
           <Route path="/addclient" element={<AddClients />} />
           <Route path="/updateclient/:id" element={<UpdateClients />} />
+          <Route path="/orders" element={<Orders />} />
+          <Route path="/addorder" element={<AddOrders />} />
         </Routes>
       </div>
     </BrowserRouter>
@@ -40,3 +44,6 @@ export default App;
 
 //Backend % nodemon index.js
 //client % npm start
+
+// lsof -i :8800
+// kill pid

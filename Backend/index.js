@@ -55,6 +55,44 @@ app.get("/client", (req, res) => {
   });
 });
 
+app.get("/client/:idClient", (req, res) => {
+  const clientId = req.params.idClient;
+  const q = "SELECT * FROM CLIENT WHERE idClient =?";
+
+  db.query(q, [clientId], (err, data) => {
+    if (err) return res.json(err);
+    return res.json("Client is there");
+  });
+});
+
+app.get("/client/:idClient", (req, res) => {
+  const clientId = req.params.idClient;
+  const q = "SELECT * FROM CLIENT WHERE idClient =?";
+
+  db.query(q, [clientId], (err, data) => {
+    if (err) return res.json(err);
+    return res.json("Client is there");
+  });
+});
+
+app.get("/book/:id", (req, res) => {
+  const id = req.params.id;
+  const q = "SELECT * FROM BOOKS WHERE id =?";
+
+  db.query(q, [id], (err, data) => {
+    if (err) return res.json(err);
+    return res.json("book is there");
+  });
+});
+
+app.get("/order", (req, res) => {
+  const q = "SELECT * FROM Orders";
+  db.query(q, (err, data) => {
+    if (err) return res.json(err);
+    return res.json(data);
+  });
+});
+
 app.post("/books", (req, res) => {
   const q = "INSERT INTO Books(`title`,`desc`,`price`,`cover`) VALUES (?)";
   const values = [
@@ -106,6 +144,16 @@ app.delete("/client/:idClient", (req, res) => {
   });
 });
 
+app.delete("/order/:orderID", (req, res) => {
+  const orderID = req.params.orderID;
+  const q = "DELETE FROM Orders WHERE orderID =?";
+
+  db.query(q, [orderID], (err, data) => {
+    if (err) return res.json(err);
+    return res.json("Client has been deleted sucessfully");
+  });
+});
+
 app.put("/books/:id", (req, res) => {
   const bookId = req.params.id;
   const q =
@@ -139,6 +187,37 @@ app.put("/client/:idClient", (req, res) => {
   db.query(q, [...values, clientId], (err, data) => {
     if (err) return res.json(err);
     return res.json("Client has been updated sucessfully");
+  });
+});
+app.post("/order", async (req, res) => {
+  const { idClient, id, issueDate } = req.body;
+
+  // Check if the client record exists
+  await db.query(
+    "SELECT idClient FROM Client WHERE idClient = ?",
+    [idClient],
+    (err, result) => {
+      if (err || !result) {
+        console.log("no client");
+        return res.status(400).json({ error: "Client does not exist" });
+      }
+    }
+  );
+
+  // Check if the book record exists
+  await db.query("SELECT id FROM Books WHERE id = ?", [id], (err, result) => {
+    if (err || !result) {
+      return res.status(400).json({ error: "Book does not exist" });
+    }
+  });
+
+  // Add the order record
+  const q = "INSERT INTO Orders(`idClient`,`id`,`issueDate`) VALUES (?)";
+  const values = [idClient, id, issueDate];
+
+  db.query(q, [values], (err, data) => {
+    if (err) return res.json(err);
+    return res.json("Order has been created successfully");
   });
 });
 
