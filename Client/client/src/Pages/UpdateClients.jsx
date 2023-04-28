@@ -1,6 +1,7 @@
 import axios from 'axios';
 import React, { useState } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
+// import { useParams } from 'react-router-dom';
 
 const UpdateClients = () => {
     const [client,setClient] = useState({
@@ -12,9 +13,10 @@ const UpdateClients = () => {
     
       const navigate = useNavigate();
       const location = useLocation();
+      
     
       const clientId = location.pathname.split("/")[2];
-    
+      
       const handleChange = async e =>{
         setClient(prev=>({...prev , [e.target.name]: e.target.value}))
       };
@@ -30,9 +32,12 @@ const UpdateClients = () => {
       
       
       console.log(client)
+      // const { idClient } = useParams();
+      // console.log(idClient);
       return (
         <div className="form">
           <h1>Update Client Details</h1>
+          <input type="number" name="idClient" value={clientId} disabled/>
           <input type="text" name="name" onChange={handleChange} placeholder='Name' />
           <input type="text" name="emailId" onChange={handleChange} placeholder='Email id' />
           <input type="text" name="address" onChange={handleChange} placeholder='Address' />
