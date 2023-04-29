@@ -1,18 +1,23 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-
 const Navigation = () => {
   return (
-    <div className="bg-pink">
-      <div className="container-fluid mb-3">
-        <nav className="navbar navbar-expand-lg navbar-light">
-          <div className="container">
-           <h2> Admin - DashBoard </h2> 
-           
-          </div>
-        </nav>
-      </div>
-    </div>
+    <nav>
+      <ul>
+      <li>
+        <Link to="/dashboard">GyaanBhavan</Link>
+        </li>
+        <li>
+          <Link to="/dashboard">Dashboard</Link>
+        </li>
+        <li>
+          <Link to="/search">Search</Link>
+        </li>
+        <li>
+          <Link to="/">Logout</Link>
+        </li>
+      </ul>
+    </nav>
   );
 };
 

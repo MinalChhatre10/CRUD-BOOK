@@ -1,29 +1,47 @@
 .App {
     height: 100vh;
-    padding: 0px 100px;
-    display: flex;
+    /* padding: 10px 10px; */
+    display:flow-root;
     align-items: center;
     justify-content: center;
     text-align: center;
     background-color: #FFF7F7;
   }
+  .head {
+    font-family: 'IM Fell English', serif;
+    font-size: 36px;
+    font-weight: bold;
+    color: #f59bb6;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    transition: all 0.3s ease-in-out;
+  }
+  
+  .head:hover {
+    color: #c74d64;
+    transform: scale(1.1);
+  }
+  
+  
   
   .books {
     display: flex;
-    gap: 10px;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
   }
   
   .book {
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.3);
-    transition: all 0.3s ease;
-    border-radius: 10px;
-    padding: 2px 16px;
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-    align-items: center;
-    background-color: #FFF0F5;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.3);
+  transition: all 0.3s ease;
+  border-radius: 10px;
+  padding: 2px 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  align-items: center;
+  background-color: #FFF0F5;
+  width: 300px; /* or any other desired width */
   }
   
   .book:hover {
@@ -92,7 +110,12 @@
     color: #FFF;
     transform: scale(1.1);
   }
-  
+  .forms {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+  }
   .form {
     display: flex;
     flex-direction: column;

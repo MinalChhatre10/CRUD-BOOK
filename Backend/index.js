@@ -31,6 +31,17 @@ app.post("/login", (req, res) => {
   });
 });
 
+//sendMail
+app.get("/getemail/:orderId", (req, res) => {
+  const orderId = req.params.orderId;
+  const q =
+    "SELECT c.emailId FROM Client c INNER JOIN Orders o ON o.idClient = c.idClient WHERE o.orderId = ?";
+  db.query(q, [orderId], (err, data) => {
+    if (err) return res.json(err);
+    return res.json(data[0].emailId);
+  });
+});
+
 app.get("/books", (req, res) => {
   // db.connect(function (err) {
   //   if (err) {

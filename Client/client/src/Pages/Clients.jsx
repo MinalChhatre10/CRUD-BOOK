@@ -2,7 +2,7 @@ import React, { useEffect } from 'react'
 import { useState } from 'react'
 import axios from 'axios'
 import { Link } from 'react-router-dom';
-
+import Navigation from './Navigation';
 
 
 const Clients = () => {
@@ -31,7 +31,8 @@ const Clients = () => {
 
   return (
     <div>
-      <h1>Clients</h1>
+      <Navigation />
+      <h1 className='head' >Clients</h1>
       <div className="books">
         {clients.map(client=>(
           <div className="book" key={client.idClient}>
@@ -44,7 +45,9 @@ const Clients = () => {
             <button className="update"><Link to={`/updateclient/${client.idClient}`}>Update</Link> </button>
           </div>
         ))}
-      </div>
+        </div>
+        
+      
       <button className="linkB"><Link to="/addclient">Add Client</Link></button>
     </div>
   )

@@ -2,7 +2,7 @@ import React, { useEffect } from 'react'
 import { useState } from 'react'
 import axios from 'axios'
 import { Link } from 'react-router-dom';
-
+import Navigation from './Navigation';
 const Orders = () => {
     const [orders,setOrders] = useState([]);
     useEffect(()=>{
@@ -29,7 +29,8 @@ const Orders = () => {
   
     return (
       <div>
-        <h1>Orders</h1>
+        <Navigation />
+       <h1 className='head' >Orders</h1>
         <div className="books">
           {orders.map(order=>(
             <div className="book" key={order.orderID}>
@@ -38,7 +39,7 @@ const Orders = () => {
               <p>{order.issueDate}</p>
   
               <button className="delete" onClick={()=>handleDelete(order.orderID)}>Delete</button>
-              <button className="update"><Link to={`/updateclient/${order.orderID}`}>Update</Link> </button>
+              <button className="update"><Link to={`/sendemail/${order.orderID}`}>Send Mail</Link> </button>
             </div>
           ))}
         </div>

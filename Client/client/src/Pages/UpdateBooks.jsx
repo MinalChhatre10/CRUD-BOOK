@@ -36,6 +36,7 @@ const UpdateBooks = () => {
   
   console.log(book)
   return (
+  <div className='forms'>
     <div className="form">
       <h1>Update The Book</h1>
       <input type="number" name="id" value={id} disabled/>
@@ -44,6 +45,7 @@ const UpdateBooks = () => {
       <input type="number" name="price" onChange={handleChange} placeholder='price' />
       <input type="text" name="cover" onChange={handleChange} placeholder='cover' />
       <button className="formButton" onClick={handleClick}>Update</button>
+    </div>
     </div>
   );
 };

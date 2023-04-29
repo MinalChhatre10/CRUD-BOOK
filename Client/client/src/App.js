@@ -1,19 +1,19 @@
 import React from "react";
-import ReactDOM from "react-dom";
 
-import { BrowserRouter, Route, Routes, Link } from "react-router-dom";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Books from "./Pages/Books";
 import AddBooks from "./Pages/AddBooks";
 import UpdateBooks from "./Pages/UpdateBooks";
 import LoginAdmin from "./Pages/LoginAdmin";
 import Dashboard from "./Pages/Dashboard";
 import "./style.css";
-import "./Dashboard.css";
+import "./dashnav.css";
 import Clients from "./Pages/Clients";
 import AddClients from "./Pages/AddClients";
 import UpdateClients from "./Pages/UpdateClients";
 import Orders from "./Pages/Orders";
 import AddOrders from "./Pages/AddOrders";
+import SendMail from "./Pages/SendMail";
 
 function App() {
   return (
@@ -30,6 +30,7 @@ function App() {
           <Route path="/updateclient/:id" element={<UpdateClients />} />
           <Route path="/orders" element={<Orders />} />
           <Route path="/addorder" element={<AddOrders />} />
+          <Route path="/sendemail/:orderID" element={<SendMail />} />
         </Routes>
       </div>
     </BrowserRouter>

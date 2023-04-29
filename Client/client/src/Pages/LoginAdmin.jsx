@@ -24,7 +24,8 @@ const LoginAdmin = () => {
   }
 
   return (
-    <div >
+    <div className='forms'>
+       
       <form className="form" onSubmit={handleSubmit}>
       <h1>Login</h1>
       {alertMessage && <div className="alert">{alertMessage}</div>}

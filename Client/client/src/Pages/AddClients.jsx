@@ -28,6 +28,7 @@ const AddClients = () => {
       
       console.log(client)
       return (
+        <div className='forms'>
         <div className="form">
           <h1>Add A Client</h1>
           <input type="text" name="name" onChange={handleChange} placeholder='name' />
@@ -35,6 +36,7 @@ const AddClients = () => {
           <input type="text" name="address" onChange={handleChange} placeholder='address' />
           <input type="text" name="gender" onChange={handleChange} placeholder='gender' />
           <button className="formButton" onClick={handleClick}>Add</button>
+        </div>
         </div>
       );
 };

@@ -44,6 +44,7 @@ const AddOrders = () => {
   };
 
   return (
+    <div className='forms'>
     <div className="form">
       <h1>Add Order</h1>
       <input type="text" name="idClient" onChange={handleChange} placeholder='Enter valid client id' />
@@ -51,6 +52,7 @@ const AddOrders = () => {
       <input type="text" name="issueDate" onChange={handleChange} placeholder='Issue Date' />
       {errorMessage && <div className="error">{errorMessage}</div>}
       <button className="formButton" onClick={handleClick}>Add</button>
+    </div>
     </div>
   );
 };
