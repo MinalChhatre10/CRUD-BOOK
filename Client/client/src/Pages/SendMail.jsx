@@ -1,10 +1,12 @@
 import React,{useState,useEffect} from 'react'
 import axios from 'axios';
 import { useParams } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 const SendMail = () => {
     const { orderID } = useParams();
     console.log(orderID);
     const [emailID,setEmailId] = useState("");
+    const navigate = useNavigate();
     console.log("email isssss",emailID);
     useEffect(()=>{
       const fetchAllOrders = async()=>{
@@ -31,6 +33,7 @@ const SendMail = () => {
         })
       });
       console.log(res);
+      navigate('/orders');
     }
   return (
     <div className='forms'>

@@ -1,9 +1,11 @@
 import express from "express";
 import mysql from "mysql";
 import cors from "cors";
+import nodemailer from "nodemailer";
+import dotenv from "dotenv";
+dotenv.config();
 
 const app = express();
-
 const db = mysql.createConnection({
   host: "127.0.0.1",
   user: "Minal",
@@ -43,11 +45,49 @@ app.get("/getemail/:orderId", (req, res) => {
 });
 
 app.post("/sendmails", (req, res) => {
-  const { emailId } = req.body;
+  const { emailID } = req.body;
+
+  if (!emailID) {
+    return res.status(400).json({ error: "Email address is required" });
+  }
+
+  if (!isValidEmail(emailID)) {
+    return res.status(400).json({ error: "Invalid email address" });
+  }
 
   try {
-  } catch (error) {}
+    const transporter = nodemailer.createTransport({
+      service: "gmail",
+      auth: {
+        user: process.env.EMAIL,
+        pass: process.env.PASSWORD,
+      },
+    });
+    const mailOptions = {
+      from: process.env.EMAIL,
+      to: emailID,
+      Subject: "Reminder to return books",
+      html: "<p>Your issued book due date is tomorrow. Please return the books on time. Please ignore if already returned. Thank You</p>",
+    };
+
+    transporter.sendMail(mailOptions, (error, info) => {
+      if (error) {
+        console.log("Error", error);
+        res.status(500).json({ error: "Failed to send email" });
+      } else {
+        console.log("Email Sent" + info.response);
+        res.status(201).json({ status: 201, info });
+      }
+    });
+  } catch (error) {
+    res.status(500).json({ error: "Failed to send email" });
+  }
 });
+
+function isValidEmail(emailID) {
+  const re = /\S+@\S+\.\S+/;
+  return re.test(emailID);
+}
 
 app.get("/books", (req, res) => {
   // db.connect(function (err) {

@@ -36,8 +36,8 @@ const Books = () => {
         {books.map(book=>(
           <div className="book" key={book.id}>
             <h2>{book.title}</h2>
-            <h2>{book.cover}</h2>
-            <p>{book.desc}</p>
+            <h2>{book.desc}</h2>
+            <p>{book.cover}</p>
             <span>{book.price}</span>
 
             <button className="delete" onClick={()=>handleDelete(book.id)}>Delete</button>

@@ -37,7 +37,7 @@ const AddBooks = () => {
     <div className="form">
       <h1>Add New Book</h1>
       <input type="text" name="title" onChange={handleChange} placeholder='title' />
-      <input type="text" name="desc" onChange={handleChange} placeholder='discription' />
+      <input type="text" name="desc" onChange={handleChange} placeholder='author' />
       <input type="number" name="price" onChange={handleChange} placeholder='price' />
       <input type="text" name="cover" onChange={handleChange} placeholder='cover' />
       <button className="formButton" onClick={handleClick}>Add</button>
