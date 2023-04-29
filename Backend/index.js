@@ -42,6 +42,13 @@ app.get("/getemail/:orderId", (req, res) => {
   });
 });
 
+app.post("/sendmails", (req, res) => {
+  const { emailId } = req.body;
+
+  try {
+  } catch (error) {}
+});
+
 app.get("/books", (req, res) => {
   // db.connect(function (err) {
   //   if (err) {

@@ -1,11 +1,19 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+
 const Navigation = () => {
+  const fancyFont = {
+    fontFamily: 'cursive',
+    fontSize: '1.6rem',
+  };
+
   return (
     <nav>
       <ul>
-      <li>
-        <Link to="/dashboard">GyaanBhavan</Link>
+        <li>
+          <Link to="/dashboard" style={fancyFont}>
+            Gyaan<span style={{ fontWeight: 'bold' }}>Bhavan</span>
+          </Link>
         </li>
         <li>
           <Link to="/dashboard">Dashboard</Link>

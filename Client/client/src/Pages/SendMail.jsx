@@ -5,6 +5,7 @@ const SendMail = () => {
     const { orderID } = useParams();
     console.log(orderID);
     const [emailID,setEmailId] = useState("");
+    console.log("email isssss",emailID);
     useEffect(()=>{
       const fetchAllOrders = async()=>{
         try{
@@ -18,12 +19,25 @@ const SendMail = () => {
       }
       fetchAllOrders()
     },[])
+
+    const sendEmail = async(e)=>{
+      e.preventDefault();
+      const res= await fetch("http://localhost:8800/sendmails",{
+        method:"POST",
+        headers:{
+          "Content-Type":"application/json"
+        },body:JSON.stringify({
+          emailID
+        })
+      });
+      console.log(res);
+    }
   return (
     <div className='forms'>
     <div className="form">
     <h1>Send Mail</h1>
     <input type="text" name="emailID" value={emailID} disabled/>
-    {/* <button className="formButton" onClick={handleClick}>Add</button> */}
+    <button className="formButton" onChange={(e)=>setEmailId(e.target.value)} onClick={sendEmail}>Send</button>
   </div>
   </div>
   )
