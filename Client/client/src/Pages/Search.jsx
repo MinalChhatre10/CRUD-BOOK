@@ -12,19 +12,22 @@ const Search = () => {
    
       <div className="search-card">
         <h2>Search Books</h2>
-        <Link to="/search-books">
+        <input type="text" name="title" placeholder='Title' />
+        <Link to="/searchbooks">
           <button className="search-button">Search</button>
         </Link>
       </div>
       <div className="search-card">
         <h2>Search Clients</h2>
-        <Link to="/search-clients">
+        <input type="text" name="name" placeholder='Name' />
+        <Link to="/searchclients">
           <button className="search-button">Search</button>
         </Link>
       </div>
       <div className="search-card">
         <h2>Search Orders</h2>
-        <Link to="/search-orders">
+        <input type="text" name="idClient" placeholder='Client-Id' />
+        <Link to="/searchorders">
           <button className="search-button">Search</button>
         </Link>
       </div>
