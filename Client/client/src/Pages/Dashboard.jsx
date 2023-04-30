@@ -10,7 +10,13 @@ const Dashboard = () => {
   return (
   <div>
    <Navigation />
-   
+   <div className="search-container">
+   <div className="flower">
+        <div className="petal petal1"></div>
+        <div className="petal petal2"></div>
+        <div className="petal petal3"></div>
+        <div className="petal petal4"></div>
+      </div>
       <div className="container">
       <h1 className='head' >Admin-Dashboard</h1>
         <div className="row mt-4 card-container">
@@ -45,6 +51,7 @@ const Dashboard = () => {
             </Card>
           </div>
         </div>
+      </div>
       </div>
       </div>
   );

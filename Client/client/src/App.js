@@ -8,12 +8,14 @@ import LoginAdmin from "./Pages/LoginAdmin";
 import Dashboard from "./Pages/Dashboard";
 import "./style.css";
 import "./dashnav.css";
+import "./searchstyle.css";
 import Clients from "./Pages/Clients";
 import AddClients from "./Pages/AddClients";
 import UpdateClients from "./Pages/UpdateClients";
 import Orders from "./Pages/Orders";
 import AddOrders from "./Pages/AddOrders";
 import SendMail from "./Pages/SendMail";
+import Search from "./Pages/Search";
 
 function App() {
   return (
@@ -31,6 +33,7 @@ function App() {
           <Route path="/orders" element={<Orders />} />
           <Route path="/addorder" element={<AddOrders />} />
           <Route path="/sendemail/:orderID" element={<SendMail />} />
+          <Route path="/search" element={<Search />} />
         </Routes>
       </div>
     </BrowserRouter>
