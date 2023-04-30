@@ -116,7 +116,7 @@
     flex-wrap: wrap;
     justify-content: center;
     gap: 20px;
-    padding-top: 250px;
+    padding-top: 100px;
   }
   .form {
     display: flex;

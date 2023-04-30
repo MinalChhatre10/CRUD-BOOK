@@ -3,7 +3,7 @@ import axios from 'axios';
 import React, { useState } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
 import { useParams } from 'react-router-dom';
-
+import Navigation from './Navigation';
 const UpdateBooks = () => {
   const [book,setBook] = useState({
     title:"",
@@ -36,6 +36,8 @@ const UpdateBooks = () => {
   
   console.log(book)
   return (
+    <div>
+    <Navigation/>
   <div className='forms'>
     <div className="form">
       <h1>Update The Book</h1>
@@ -45,6 +47,7 @@ const UpdateBooks = () => {
       <input type="number" name="price" onChange={handleChange} placeholder='price' />
       <input type="text" name="cover" onChange={handleChange} placeholder='cover' />
       <button className="formButton" onClick={handleClick}>Update</button>
+    </div>
     </div>
     </div>
   );

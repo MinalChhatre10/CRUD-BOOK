@@ -2,7 +2,7 @@ import axios from 'axios';
 import React, { useState } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
 // import { useParams } from 'react-router-dom';
-
+import Navigation from './Navigation';
 const UpdateClients = () => {
     const [client,setClient] = useState({
         name:"",
@@ -35,6 +35,8 @@ const UpdateClients = () => {
       // const { idClient } = useParams();
       // console.log(idClient);
       return (
+        <div>
+          <Navigation/>
         <div className='forms'>
         <div className="form">
           <h1>Update Client Details</h1>
@@ -44,6 +46,7 @@ const UpdateClients = () => {
           <input type="text" name="address" onChange={handleChange} placeholder='Address' />
           <input type="text" name="gender" onChange={handleChange} placeholder='Gender' />
           <button className="formButton" onClick={handleClick}>Update</button>
+        </div>
         </div>
         </div>
       );

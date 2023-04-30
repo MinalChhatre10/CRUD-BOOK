@@ -1,7 +1,7 @@
 import axios from 'axios';
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-
+import Navigation from './Navigation';
 const AddClients = () => {
     const [client,setClient] = useState({
         name:"",
@@ -28,6 +28,8 @@ const AddClients = () => {
       
       console.log(client)
       return (
+        <div>
+          <Navigation/>
         <div className='forms'>
         <div className="form">
           <h1>Add A Client</h1>
@@ -36,6 +38,7 @@ const AddClients = () => {
           <input type="text" name="address" onChange={handleChange} placeholder='address' />
           <input type="text" name="gender" onChange={handleChange} placeholder='gender' />
           <button className="formButton" onClick={handleClick}>Add</button>
+        </div>
         </div>
         </div>
       );

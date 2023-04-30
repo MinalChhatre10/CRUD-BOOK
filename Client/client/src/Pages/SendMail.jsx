@@ -1,5 +1,6 @@
 import React,{useState,useEffect} from 'react'
 import axios from 'axios';
+import Navigation from './Navigation';
 import { useParams } from 'react-router-dom';
 import { useNavigate } from 'react-router-dom';
 const SendMail = () => {
@@ -36,11 +37,14 @@ const SendMail = () => {
       navigate('/orders');
     }
   return (
+    <div>
+      <Navigation/>
     <div className='forms'>
     <div className="form">
     <h1>Send Mail</h1>
     <input type="text" name="emailID" value={emailID} disabled/>
     <button className="formButton" onChange={(e)=>setEmailId(e.target.value)} onClick={sendEmail}>Send</button>
+  </div>
   </div>
   </div>
   )

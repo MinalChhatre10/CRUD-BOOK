@@ -1,7 +1,7 @@
 import axios from 'axios';
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-
+import Navigation from './Navigation';
 const AddOrders = () => {
   const [formData, setFormData] = useState({ idClient: '', id: '', issueDate: '' });
   const [errorMessage, setErrorMessage] = useState('');
@@ -44,6 +44,8 @@ const AddOrders = () => {
   };
 
   return (
+    <div>
+      <Navigation/>
     <div className='forms'>
     <div className="form">
       <h1>Add Order</h1>
@@ -52,6 +54,7 @@ const AddOrders = () => {
       <input type="text" name="issueDate" onChange={handleChange} placeholder='Issue Date' />
       {errorMessage && <div className="error">{errorMessage}</div>}
       <button className="formButton" onClick={handleClick}>Add</button>
+    </div>
     </div>
     </div>
   );
