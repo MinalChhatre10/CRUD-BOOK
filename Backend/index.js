@@ -105,6 +105,15 @@ app.get("/books", (req, res) => {
   });
 });
 
+app.get("/booktitle/:title", (req, res) => {
+  const title = req.params.title;
+  const q = "SELECT * FROM Books WHERE title=?";
+  db.query(q, [title], (err, data) => {
+    if (err) return res.json(err);
+    return res.json(data);
+  });
+});
+
 app.get("/client", (req, res) => {
   const q = "SELECT * FROM Client";
   db.query(q, (err, data) => {
@@ -113,13 +122,23 @@ app.get("/client", (req, res) => {
   });
 });
 
-app.get("/client/:idClient", (req, res) => {
-  const clientId = req.params.idClient;
-  const q = "SELECT * FROM CLIENT WHERE idClient =?";
+app.get("/getClientData/:name", (req, res) => {
+  const clientName = req.params.name;
+  const q = "SELECT * FROM CLIENT WHERE name =?";
 
+  db.query(q, [clientName], (err, data) => {
+    if (err) return res.json(err);
+    return res.json(data);
+  });
+});
+
+app.get("/getOrderData/:clientId", (req, res) => {
+  const clientId = req.params.clientId;
+  const q =
+    "SELECT o.orderID, o.idClient, b.title FROM Books b INNER JOIN Orders o on b.id = o.id where idCLient = ?";
   db.query(q, [clientId], (err, data) => {
     if (err) return res.json(err);
-    return res.json("Client is there");
+    return res.json(data);
   });
 });
 

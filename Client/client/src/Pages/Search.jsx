@@ -1,37 +1,197 @@
-import React from "react";
 import { Link } from "react-router-dom";
 import Navigation from "./Navigation";
-
+import axios from "axios";
+import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
 const Search = () => {
+  const [errorMessage, setErrorMessage] = useState("");
+  const navigate = useNavigate();
+  const [bookData, setBookData] = useState(null);
+  const [clientData, setClientData] = useState(null);
+  const [orderData, setOrderData] = useState(null);
+  const [book, setBook] = useState({
+    title: "",
+  });
+  const [client, setClient] = useState({
+    name: "",
+  });
+  const [order, setOrder] = useState({
+    idClient: "",
+  });
+
+  const clienthandleChange = async (e) => {
+    setClient((prev) => ({ ...prev, [e.target.name]: e.target.value }));
+  };
+  const bookhandleChange = async (e) => {
+    setBook((prev) => ({ ...prev, [e.target.name]: e.target.value }));
+  };
+  const orderhandleChange = async (e) => {
+    setOrder((prev) => ({ ...prev, [e.target.name]: e.target.value }));
+  };
+
+  const bookhandleClick = async () => {
+    try {
+      // Check if the book record exists
+      const bookResult = await axios.get(
+        "http://localhost:8800/booktitle/" + book.title
+      );
+      console.log(bookResult);
+      if (bookResult.data) {
+        setOrderData(null);
+        setClientData(null);
+        setBookData(bookResult.data);
+      }
+    } catch (error) {
+      if (error.code === "ECONNREFUSED") {
+        setErrorMessage("Could not connect to the server");
+      } else {
+        setErrorMessage(error.message);
+      }
+    }
+  };
+
+  const clienthandleClick = async () => {
+    try {
+      // Check if the client record exists
+      const clientResult = await axios.get(
+        "http://localhost:8800/getClientData/" + client.name
+      );
+      console.log("client = ", clientResult.data);
+      if (clientResult.data) {
+        setBookData(null);
+        setOrderData(null);
+        setClientData(clientResult.data);
+      }
+    } catch (error) {
+      if (error.code === "ECONNREFUSED") {
+        setErrorMessage("Could not connect to the server");
+      } else {
+        setErrorMessage(error.message);
+      }
+    }
+  };
+
+  const orderhandleClick = async () => {
+    try {
+      // Check if the order record exists
+      const orderResult = await axios.get(
+        "http://localhost:8800/getOrderData/" + order.idClient
+      );
+
+      if (orderResult.data) {
+        setBookData(null);
+        setClientData(null);
+        setOrderData(orderResult.data);
+      }
+    } catch (error) {
+      if (error.code === "ECONNREFUSED") {
+        setErrorMessage("Could not connect to the server");
+      } else {
+        setErrorMessage(error.message);
+      }
+    }
+  };
+
   return (
     <div className="container">
-        <Navigation />
-        <h1 className='head' >Search</h1>
-    <div className="search-con">
+      <Navigation />
+      <h1 className="head">Search</h1>
+      <div className="search-con">
+        <div className="search-card">
+          <h2>Search Books</h2>
+          <input
+            type="text"
+            name="title"
+            onChange={bookhandleChange}
+            placeholder="Title"
+          />
 
-   
-      <div className="search-card">
-        <h2>Search Books</h2>
-        <input type="text" name="title" placeholder='Title' />
-        <Link to="/searchbooks">
-          <button className="search-button">Search</button>
-        </Link>
+          <button className="search-button" onClick={bookhandleClick}>
+            Search
+          </button>
+        </div>
+        <div className="search-card">
+          <h2>Search Clients</h2>
+          <input
+            type="text"
+            name="name"
+            onChange={clienthandleChange}
+            placeholder="Name"
+          />
+
+          <button className="search-button" onClick={clienthandleClick}>
+            Search
+          </button>
+        </div>
+        <div className="search-card">
+          <h2>Search Orders</h2>
+          <input
+            type="text"
+            name="idClient"
+            onChange={orderhandleChange}
+            placeholder="Client-Id"
+          />
+
+          <button className="search-button" onClick={orderhandleClick}>
+            Search
+          </button>
+        </div>
       </div>
-      <div className="search-card">
-        <h2>Search Clients</h2>
-        <input type="text" name="name" placeholder='Name' />
-        <Link to="/searchclients">
-          <button className="search-button">Search</button>
-        </Link>
+
+      <div
+        style={{
+          margin: 10,
+        }}
+      >
+        {bookData !== null && (
+          <div>
+            <h1 className="head">Books</h1>
+            <div className="books">
+              {bookData.map((book) => (
+                <div className="book" key={book.id}>
+                  <h2>{book.id}</h2>
+                  <h2>{book.title}</h2>
+                  <h2>{book.desc}</h2>
+                  <p>{book.cover}</p>
+                  <span>{book.price}</span>
+                </div>
+              ))}
+            </div>
+          </div>
+        )}
+
+        {clientData !== null && (
+          <div>
+            <h1 className="head">Clients</h1>
+            <div className="books">
+              {clientData.map((client) => (
+                <div className="book" key={client.idClient}>
+                  <h2>{client.idClient}</h2>
+                  <h2>{client.name}</h2>
+                  <h2>{client.emailId}</h2>
+                  <p>{client.address}</p>
+                  <span>{client.gender}</span>
+                </div>
+              ))}
+            </div>
+          </div>
+        )}
+
+        {orderData !== null && (
+          <div>
+            <h1 className="head">Order</h1>
+            <div className="books">
+              {orderData.map((order) => (
+                <div className="book" key={order.orderID}>
+                  <h2>{order.orderID}</h2>
+                  <h2>{order.idClient}</h2>
+                  <h2>{order.title}</h2>
+                </div>
+              ))}
+            </div>
+          </div>
+        )}
       </div>
-      <div className="search-card">
-        <h2>Search Orders</h2>
-        <input type="text" name="idClient" placeholder='Client-Id' />
-        <Link to="/searchorders">
-          <button className="search-button">Search</button>
-        </Link>
-      </div>
-    </div>
     </div>
   );
 };

@@ -16,6 +16,9 @@ import Orders from "./Pages/Orders";
 import AddOrders from "./Pages/AddOrders";
 import SendMail from "./Pages/SendMail";
 import Search from "./Pages/Search";
+import SearchBooks from "./Pages/SearchBooks";
+import SearchClients from "./Pages/SearchClients";
+import SearchOrders from "./Pages/SearchOrders";
 
 function App() {
   return (
@@ -34,6 +37,9 @@ function App() {
           <Route path="/addorder" element={<AddOrders />} />
           <Route path="/sendemail/:orderID" element={<SendMail />} />
           <Route path="/search" element={<Search />} />
+          <Route path="/searchbooks" element={<SearchBooks />} />
+          <Route path="/searchclients" element={<SearchClients />} />
+          <Route path="/searchorders" element={<SearchOrders />} />
         </Routes>
       </div>
     </BrowserRouter>
