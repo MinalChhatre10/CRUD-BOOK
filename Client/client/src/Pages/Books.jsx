@@ -1,53 +1,59 @@
-import React, { useEffect } from 'react'
-import { useState } from 'react'
-import axios from 'axios'
-import { Link } from 'react-router-dom';
-import Navigation from './Navigation';
+import React, { useEffect } from "react";
+import { useState } from "react";
+import axios from "axios";
+import { Link } from "react-router-dom";
+import Navigation from "./Navigation";
 
 const Books = () => {
-  const [books,setBooks] = useState([])
-  useEffect(()=>{
-    const fetchAllBooks = async()=>{
-      try{
-        const res = await axios.get("http://localhost:8800/books")
+  const [books, setBooks] = useState([]);
+  useEffect(() => {
+    const fetchAllBooks = async () => {
+      try {
+        const res = await axios.get("http://localhost:8800/books");
         setBooks(res.data);
-      }catch(err){
+      } catch (err) {
         console.log(err);
       }
-    }
-    fetchAllBooks()
-  },[])
+    };
+    fetchAllBooks();
+  }, []);
 
-  const handleDelete = async(id)=>{
-    try{
-      const res = await axios.delete("http://localhost:8800/books/"+id)
-      window.location.reload()
+  const handleDelete = async (id) => {
+    try {
+      const res = await axios.delete("http://localhost:8800/books/" + id);
+      window.location.reload();
       setBooks(res.data);
-    }catch(err){
+    } catch (err) {
       console.log(err);
     }
-  }
+  };
 
   return (
     <div>
       <Navigation />
-      <h1 className='head' >Books</h1>
+      <h1 className="head">Books</h1>
       <div className="books">
-        {books.map(book=>(
+        {books.map((book) => (
           <div className="book" key={book.id}>
-            <h2>{book.title}</h2>
-            <h2>{book.desc}</h2>
-            <p>{book.cover}</p>
-            <span>{book.price}</span>
+            <h2>TITLE: {book.title}</h2>
+            <h2>DESC: {book.desc}</h2>
+            <p>COVER: {book.cover}</p>
+            <span>PRICE: {book.price}</span>
 
-            <button className="delete" onClick={()=>handleDelete(book.id)}>Delete</button>
-            <button className="update"><Link to={`/update/${book.id}`}>Update</Link> </button>
+            <button className="delete" onClick={() => handleDelete(book.id)}>
+              Delete
+            </button>
+            <button className="update">
+              <Link to={`/update/${book.id}`}>Update</Link>{" "}
+            </button>
           </div>
         ))}
       </div>
-      <button className="linkB"><Link to="/add">Add New Book</Link></button>
+      <button className="linkB">
+        <Link to="/add">Add New Book</Link>
+      </button>
     </div>
-  )
-}
+  );
+};
 
-export default Books
+export default Books;

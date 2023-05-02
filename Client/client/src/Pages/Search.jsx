@@ -149,11 +149,11 @@ const Search = () => {
             <div className="books">
               {bookData.map((book) => (
                 <div className="book" key={book.id}>
-                  <h2>{book.id}</h2>
-                  <h2>{book.title}</h2>
-                  <h2>{book.desc}</h2>
-                  <p>{book.cover}</p>
-                  <span>{book.price}</span>
+                  <h2>ID: {book.id}</h2>
+                  <h2>TITLE: {book.title}</h2>
+                  <h2>DESC: {book.desc}</h2>
+                  <p>COVER: {book.cover}</p>
+                  <span>PRICE: {book.price}</span>
                 </div>
               ))}
             </div>
@@ -166,11 +166,11 @@ const Search = () => {
             <div className="books">
               {clientData.map((client) => (
                 <div className="book" key={client.idClient}>
-                  <h2>{client.idClient}</h2>
-                  <h2>{client.name}</h2>
+                  <h2>ID: {client.idClient}</h2>
+                  <h2>NAME: {client.name}</h2>
                   <h2>{client.emailId}</h2>
-                  <p>{client.address}</p>
-                  <span>{client.gender}</span>
+                  <p>ADD: {client.address}</p>
+                  <span>GENDER: {client.gender}</span>
                 </div>
               ))}
             </div>
@@ -183,9 +183,9 @@ const Search = () => {
             <div className="books">
               {orderData.map((order) => (
                 <div className="book" key={order.orderID}>
-                  <h2>{order.orderID}</h2>
-                  <h2>{order.idClient}</h2>
-                  <h2>{order.title}</h2>
+                  <h2>ORDER-ID: {order.orderID}</h2>
+                  <h2>CLIENT-ID: {order.idClient}</h2>
+                  <h2>ORDER-TITLE: {order.title}</h2>
                 </div>
               ))}
             </div>
