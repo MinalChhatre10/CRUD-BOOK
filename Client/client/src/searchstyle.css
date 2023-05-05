@@ -18,7 +18,7 @@
     height: 0;
     border-style: solid;
     border-width: 100px 0 0 100px;
-    border-color: transparent transparent transparent #FF69B4;
+    border-color: transparent transparent transparent #FC9D69;
     top: 50%;
     left: 50%;
     transform-origin: 0% 100%;
@@ -58,8 +58,8 @@
     text-align: center;
     margin: 20px;
     padding: 20px;
-    background-color: #FFF0F5;
-    color: #333;
+    background-color: #b9e3f4;
+    color: #150f6a;
     border: 0.5px solid gray;
     border-radius: 20px;
     height: 100px;
@@ -72,7 +72,7 @@
   }
   
   .search-card h2 {
-    color: #f2669e;
+    color: #000080;
     margin-bottom: 30px;
     padding: 30px;
   }

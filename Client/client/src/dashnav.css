@@ -1,5 +1,5 @@
 nav {
-  background-color: #da1b7a; /* set background color to dark pink */
+  background-color: #336cc3; /* set background color to dark pink */
   padding: 30px; /* add padding for better layout */
 }
 
@@ -49,8 +49,8 @@ a:hover {
     border-radius: 5px;
     cursor: pointer;
     transition: all 0.3s ease-in-out;
-    background-color: #FFF0F5;
-    color: #333;
+    background-color:    #87CEEB;
+    color: #280f6c;
   }
   
   .card:hover {

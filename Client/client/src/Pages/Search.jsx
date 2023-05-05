@@ -106,7 +106,7 @@ const Search = () => {
             placeholder="Title"
           />
 
-          <button className="search-button" onClick={bookhandleClick}>
+          <button className="linkB" onClick={bookhandleClick}>
             Search
           </button>
         </div>
@@ -119,7 +119,7 @@ const Search = () => {
             placeholder="Name"
           />
 
-          <button className="search-button" onClick={clienthandleClick}>
+          <button className="linkB" onClick={clienthandleClick}>
             Search
           </button>
         </div>
@@ -132,7 +132,7 @@ const Search = () => {
             placeholder="Client-Id"
           />
 
-          <button className="search-button" onClick={orderhandleClick}>
+          <button className="linkB" onClick={orderhandleClick}>
             Search
           </button>
         </div>

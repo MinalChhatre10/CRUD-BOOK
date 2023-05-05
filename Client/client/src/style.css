@@ -11,7 +11,7 @@
     font-family: 'IM Fell English', serif;
     font-size: 36px;
     font-weight: bold;
-    color: #f59bb6;
+    color: #d76320;
     text-transform: uppercase;
     letter-spacing: 2px;
     transition: all 0.3s ease-in-out;
@@ -19,7 +19,7 @@
   }
   
   .head:hover {
-    color: #c74d64;
+    color: #f6874c;
     transform: scale(1.1);
   }
   
@@ -37,11 +37,12 @@
   transition: all 0.3s ease;
   border-radius: 10px;
   padding: 2px 16px;
+  color: #240881;
   display: flex;
   flex-direction: column;
   gap: 10px;
   align-items: center;
-  background-color: #FFF0F5;
+  background-color: #c5e6f4;
   width: 300px; /* or any other desired width */
   }
   
@@ -61,17 +62,17 @@
     border: none;
     margin: 30px;
     padding: 10px 20px;
-    background-color: #F8BBD0;
+    background-color: #FFF0F5;
     cursor: pointer;
-    border: 1px solid #D81B60;
-    color: #D81B60;
+    border: 1px solid #c2612d;
+    color: #f17431;
     transition: all 0.3s ease;
     border-radius: 20px;
     font-size: 20px;
   }
   
   .linkB:hover {
-    background-color: #F48FB1;
+    background-color: #FB8F53;
     color: #FFF;
     transform: scale(1.1);
   }
@@ -81,15 +82,15 @@
     padding: 10px 20px;
     background-color: #FFF0F5;
     cursor: pointer;
-    border: 1px solid #D81B60;
-    color: #D81B60;
+    border: 1px solid #246809;
+    color: #81051e;
     transition: all 0.3s ease;
     border-radius: 20px;
     font-size: 20px;
   }
   
   .delete:hover {
-    background-color: #F8BBD0;
+    background-color: #a1f1a4;
     color: #FFF;
     transform: scale(1.1);
   }
@@ -99,15 +100,15 @@
     padding: 10px 20px;
     background-color: #FFF0F5;
     cursor: pointer;
-    border: 1px solid #673AB7;
-    color: #673AB7;
+    border: 1px solid #50020f;
+    color: #a31e2b;
     transition: all 0.3s ease;
     border-radius: 20px;
     font-size: 20px;
   }
   
   .update:hover {
-    background-color: #E1BEE7;
+    background-color: #f16980;
     color: #FFF;
     transform: scale(1.1);
   }
@@ -122,9 +123,9 @@
     display: flex;
     flex-direction: column;
     gap: 20px;
-    background-color: #FFF0F5;
+    background-color:  #FDDCDA;
     width: 350px;
-   
+   color: #240881;
     padding: 20px;
     border-radius: 20px;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.3);
@@ -146,7 +147,7 @@
     border: none;
     padding: 10px 20px;
     height: 45px;
-    background-color: #F8BBD0;
+    background-color:  #E16824;
     cursor: pointer;
   }
 

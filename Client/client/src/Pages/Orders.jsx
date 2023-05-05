@@ -35,16 +35,16 @@ const Orders = () => {
         {orders.map((order) => (
           <div className="book" key={order.orderID}>
             <h2>CLIENT-ID: {order.idClient}</h2>
-            <h2>ORDER-ID: {order.id}</h2>
+            <h2>Book-ID: {order.id}</h2>
             <p>ISSUE-DATE: {order.issueDate}</p>
 
             <button
-              className="delete"
+              className="update"
               onClick={() => handleDelete(order.orderID)}
             >
               Delete
             </button>
-            <button className="update">
+            <button className="delete">
               <Link to={`/sendemail/${order.orderID}`}>Send Mail</Link>{" "}
             </button>
           </div>

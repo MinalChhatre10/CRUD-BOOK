@@ -43,12 +43,12 @@ const Clients = () => {
             <span>GENDER: {client.gender}</span>
 
             <button
-              className="delete"
+              className="update"
               onClick={() => handleDelete(client.idClient)}
             >
               Delete
             </button>
-            <button className="update">
+            <button className="delete">
               <Link to={`/updateclient/${client.idClient}`}>Update</Link>{" "}
             </button>
           </div>
