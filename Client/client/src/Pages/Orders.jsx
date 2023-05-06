@@ -37,6 +37,7 @@ const Orders = () => {
             <h2>CLIENT-ID: {order.idClient}</h2>
             <h2>Book-ID: {order.id}</h2>
             <p>ISSUE-DATE: {order.issueDate}</p>
+            <p>DUE-DATE: {order.dueDate}</p>
 
             <button
               className="update"
