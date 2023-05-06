@@ -105,6 +105,14 @@ app.get("/books", (req, res) => {
   });
 });
 
+app.get("/fine", (req, res) => {
+  const q = "SELECT * FROM Fine";
+  db.query(q, (err, data) => {
+    if (err) return res.json(err);
+    return res.json(data);
+  });
+});
+
 app.get("/booktitle/:title", (req, res) => {
   const title = req.params.title;
   const q = "SELECT * FROM Books WHERE title=?";
@@ -266,8 +274,31 @@ app.put("/client/:idClient", (req, res) => {
     return res.json("Client has been updated sucessfully");
   });
 });
+
+app.put("/return/:orderID", (req, res) => {
+  const orderID = req.params.orderID;
+  const q = "UPDATE Orders SET `returnDate` =?  WHERE orderID =?";
+
+  const values = [req.body.returnDate];
+
+  db.query(q, [...values, orderID], (err, data) => {
+    if (err) return res.json(err);
+    return res.json("Return date has been updated sucessfully");
+  });
+});
+
+app.delete("/finedelete/:idFine", (req, res) => {
+  const idFine = req.params.idFine;
+  const q = "DELETE FROM Fine WHERE idFine =?";
+
+  db.query(q, [idFine], (err, data) => {
+    if (err) return res.json(err);
+    return res.json("Fine has been deleted sucessfully");
+  });
+});
+
 app.post("/order", async (req, res) => {
-  const { idClient, id, issueDate } = req.body;
+  const { idClient, id, issueDate, dueDate } = req.body;
 
   // Check if the client record exists
   await db.query(
@@ -289,8 +320,9 @@ app.post("/order", async (req, res) => {
   });
 
   // Add the order record
-  const q = "INSERT INTO Orders(`idClient`,`id`,`issueDate`) VALUES (?)";
-  const values = [idClient, id, issueDate];
+  const q =
+    "INSERT INTO Orders(`idClient`,`id`,`issueDate`,`dueDate`) VALUES (?)";
+  const values = [idClient, id, issueDate, dueDate];
 
   db.query(q, [values], (err, data) => {
     if (err) return res.json(err);

@@ -1,10 +1,10 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
+import React from "react";
+import { Link } from "react-router-dom";
 
 const Navigation = () => {
   const fancyFont = {
-    fontFamily: 'cursive',
-    fontSize: '1.6rem',
+    fontFamily: "cursive",
+    fontSize: "1.6rem",
   };
 
   return (
@@ -12,7 +12,7 @@ const Navigation = () => {
       <ul>
         <li>
           <Link to="/dashboard" style={fancyFont}>
-            Gyaan<span style={{ fontWeight: 'bold' }}>Bhavan</span>
+            Gyaan<span style={{ fontWeight: "bold" }}>Bhavan</span>
           </Link>
         </li>
         <li>
@@ -20,6 +20,9 @@ const Navigation = () => {
         </li>
         <li>
           <Link to="/search">Search</Link>
+        </li>
+        <li>
+          <Link to="/fine">Fine</Link>
         </li>
         <li>
           <Link to="/">Logout</Link>

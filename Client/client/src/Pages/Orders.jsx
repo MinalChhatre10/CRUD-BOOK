@@ -47,6 +47,10 @@ const Orders = () => {
             <button className="delete">
               <Link to={`/sendemail/${order.orderID}`}>Send Mail</Link>{" "}
             </button>
+
+            <button className="update">
+              <Link to={`/return/${order.orderID}`}>Return</Link>{" "}
+            </button>
           </div>
         ))}
       </div>

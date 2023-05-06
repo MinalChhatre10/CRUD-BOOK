@@ -19,6 +19,8 @@ import Search from "./Pages/Search";
 import SearchBooks from "./Pages/SearchBooks";
 import SearchClients from "./Pages/SearchClients";
 import SearchOrders from "./Pages/SearchOrders";
+import Fine from "./Pages/Fine";
+import Return from "./Pages/Return";
 
 function App() {
   return (
@@ -40,6 +42,8 @@ function App() {
           <Route path="/searchbooks" element={<SearchBooks />} />
           <Route path="/searchclients" element={<SearchClients />} />
           <Route path="/searchorders" element={<SearchOrders />} />
+          <Route path="/fine" element={<Fine />} />
+          <Route path="/return/:orderID" element={<Return />} />
         </Routes>
       </div>
     </BrowserRouter>
