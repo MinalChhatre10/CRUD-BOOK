@@ -185,7 +185,7 @@ const Search = () => {
                 <div className="book" key={order.orderID}>
                   <h2>ORDER-ID: {order.orderID}</h2>
                   <h2>CLIENT-ID: {order.idClient}</h2>
-                  <h2>ORDER-TITLE: {order.title}</h2>
+                  <h2>BOOK-TITLE: {order.title}</h2>
                 </div>
               ))}
             </div>
